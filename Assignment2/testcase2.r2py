@@ -1,0 +1,22 @@
+if "testfile.txt.a" in listfiles():
+    removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+    removefile("testfile.txt.b")
+
+myfile = ABopenfile("testfile.txt", True)
+
+try:
+    myfile.readat(None, -1)
+    myfile.close()
+except:
+    myfile.close()
+    print("Offset in readat function cannot be a negative value")
+
+try:
+    myfile.readat(None, 1000)
+    myfile.close()
+except:
+    myfile.close()
+    print("Offset in readat function cannot be EOF value")
+
+myfile.close()
