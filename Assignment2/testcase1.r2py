@@ -1,0 +1,23 @@
+if "testfile.txt.a" in listfiles():
+    removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+    removefile("testfile.txt.b")
+
+
+myfile = ABopenfile("testfile.txt", True)
+
+try:
+    myfile.writeat("Test", 1000)
+    myfile.close()
+except:
+    myfile.close()
+    print("Offset in writeat function cannot be EOF value")
+
+try:
+    myfile.writeat("Test", -1)
+    myfile.close()
+except:
+    myfile.close()
+    print("Offset in writeat function cannot be a negative value")
+
+myfile.close()
