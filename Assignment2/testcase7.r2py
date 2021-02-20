@@ -1,0 +1,13 @@
+if "testfile.txt.a" in listfiles():
+  removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+  removefile("testfile.txt.b")
+
+try:
+    myfile = ABopenfile("testfile.txt, True")
+    myfile.writeat("", 0)
+    assert('SE' == myfile.readat(None, 0))
+    myfile.close()
+except:
+    myfile.close()
+    print("Empty write command is invalid")
